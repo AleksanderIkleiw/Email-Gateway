@@ -1,0 +1,16 @@
+{% extends 'login_system/base.html' %}
+{% block body %}
+        {% for error in errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endfor %}
+    <form method="POST">
+        {% csrf_token %}
+        <label>Username</label>
+        {{ form.username }}
+        <label>Password</label>
+        {{ form.password }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

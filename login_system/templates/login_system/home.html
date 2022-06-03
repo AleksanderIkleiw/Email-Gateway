@@ -1,0 +1,21 @@
+{% extends 'login_system/base.html' %}
+
+{% block body %}
+    {% for error in errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endfor %}
+    {% for message in success %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.to }}
+        {{ form.subject }}
+        {{ form.content }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}
